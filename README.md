@@ -13,7 +13,8 @@ Capstone Project by - Kyle Stevenson, Daniel Clubb, Chaz Bruscato, Hunter Krause
 	 - Angular CLI: 9.0.3
  - Clone the GitHub repo
  - `cd` into `trunk-app/`
- - Install dependencies (ng-bootstrap, bootstrap-icons, sass): `npm install`
+ - Install dependencies: `npm install`
+ 	- Currently using: (ng-bootstrap, bootstrap-icons, sass)
  - Run app locally with: `ng serve`
 
 *Remember to include `--save` when installing any new dependencies to add them to `package.json`
