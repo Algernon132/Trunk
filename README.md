@@ -1,3 +1,6 @@
+# Trunk - Password Manager
+Capstone Project by - Kyle Stevenson, Daniel Clubb, Chaz Bruscato, Hunter Krause
+
 ## Project Setup
 !Each new feature should be worked on in its own `feature-name` branch
 
