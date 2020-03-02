@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+    Pallete:
+    Main orange: #f37916
+    complimentary:
+    purple: #6e16f3
+    teal: #16f3c7
+    analogous:
+    orange: #f3b116
+    red: #f34216
+    
+*/
+
+.body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn {
+    background-color: #6e16f3;
+    color: white;
+}
+.btn:hover {
+    background-color: rgb(87, 87, 87);
+}
