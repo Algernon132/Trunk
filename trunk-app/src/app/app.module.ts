@@ -8,13 +8,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserConsoleComponent } from './user-console/user-console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountItemComponent } from './user-console/account-item/account-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    UserConsoleComponent
+    UserConsoleComponent,
+    AccountItemComponent
   ],
   imports: [
     BrowserModule,
