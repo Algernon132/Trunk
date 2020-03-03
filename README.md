@@ -18,3 +18,10 @@ Capstone Project by - Kyle Stevenson, Daniel Clubb, Chaz Bruscato, Hunter Krause
  - Run app locally with: `ng serve`
 
 *Remember to include `--save` when installing any new dependencies to add them to `package.json`
+
+### Connecting to database:
+
+ - Install MongoDB Compass: https://www.mongodb.com/products/compass
+ - Paste this string "mongodb+srv://TrunkAdmin:admin@trunk-zugog.mongodb.net/test" in the connection field
+ 
+*This string will change once users are set up on the database, the generic admin account will no longer work
