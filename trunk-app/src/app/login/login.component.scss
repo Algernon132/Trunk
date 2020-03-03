@@ -1,0 +1,25 @@
+.row {
+    width: 100%;
+    margin: 0 auto;
+}
+.backdrop {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1200px;
+    background-color:  #F37916;
+    transform: skew(-218deg);
+    transform-origin: top;
+    z-index: 0;
+}
+.loginBox {
+    margin: 0 auto;
+    padding-top: 150px;
+    z-index: 1;
+
+    input {
+        width: 100%;
+    }
+}

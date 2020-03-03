@@ -1,0 +1,24 @@
+.navbar-brand,.nav-link {
+    color: white;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+}
+ .boxTitle {
+     margin-top: 15%;
+     text-shadow: 2px 0 15px black;
+     color: white;
+ }
+
+.backdrop {
+    height: 70vh;
+    width: 100%;
+    background-color: #F37916;
+    clip-path: polygon(0,0 100% 0, 100% 96%, 0 100%);
+    -webkit-clip-path: polygon(0,0 100% 0, 100% 96%, 0 100%);
+}

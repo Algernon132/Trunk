@@ -1,0 +1,9 @@
+<div class="account-items">
+<div class="card" *ngFor="let account of accounts">
+    <img [src]="account.image" class="card-img-top" alt="google">
+    <div class="card-body">
+        <h5 class="card-title">{{ account.type }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ account.username }}</h6>
+    </div>
+</div>
+</div>
