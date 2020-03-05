@@ -3,19 +3,20 @@ function retrieveData(){
     var location = "json.data";
     var table = document.getElementById("dataTable");
 
-    $.getJSON("data.json", function(json) {
-        console.log(json); // this will show the info it in firebug console
-
+    $.getJSON("data.json", function(json) { //asynchronous call
+        console.log(json);
         for(i=0;i<json.count;i++){
             var row = table.insertRow(indexInTable);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
-            cell1.innerHTML = "NEW CELL1";
-            cell2.innerHTML = "NEW CELL2";
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = json.data[i].domain;
+            cell2.innerHTML = json.data[i].username;
+            cell3.innerHTML = json.data[i].password;
         }
     });
 }
 
 window.onload=function(){
-    document.getElementById('retrieveButton').addEventListener('click',retrieveData);
+    this.retrieveData();
 }
