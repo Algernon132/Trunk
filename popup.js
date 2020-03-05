@@ -1,15 +1,8 @@
-  let changeColor = document.getElementById('changeColor');
-
-  chrome.storage.sync.get('color', function(data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-  });
-
-changeColor.onclick = function(element) {
-    let color = element.target.value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-          tabs[0].id,
-          {code: 'document.body.style.backgroundColor = "' + color + '";'});
-    });
-  };
+function fillTable() {
+  var table = document.getElementById("infoTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+}

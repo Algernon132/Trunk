@@ -1,0 +1,21 @@
+{
+   "count": 3,
+    "data": [
+        {
+            "domain": "https://www.google.com",
+            "username": "testUserGoogle",
+            "password": "testPasswordGoogle"
+        },
+        {
+            "domain": "https://www.reddit.com",
+            "username": "testUserReddit",
+            "password": "testPasswordReddit"
+        },
+        {
+            "domain": "https://www.humblebundle.com",
+            "username": "testUserHB",
+            "password": "testPasswordHB"
+        }
+    ]
+   
+}
