@@ -4,7 +4,10 @@
    "description":"Trunk Capstone Project",
    "permissions":[
       "storage",
-      "declarativeContent"
+      "declarativeContent",
+      "background",
+      "clipboardWrite",
+      "clipboardRead"
    ],
    "background":{
       "scripts":[
@@ -16,6 +19,5 @@
       "default_popup":"popup.html"
    },
     "options_page": "options.html",
-    
    "manifest_version":2
 }
