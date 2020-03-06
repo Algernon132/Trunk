@@ -4,7 +4,6 @@ function retrieveData(){
     var table = document.getElementById("dataTable");
 
     $.getJSON("data.json", function(json) { //asynchronous call
-        console.log(json);
         for(i=0;i<json.count;i++){
             var row = table.insertRow(indexInTable);
             var cell1 = row.insertCell(0);

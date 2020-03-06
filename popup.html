@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
 <html>
-<head>
-    <title>Trunk</title>
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="fillTable.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <head>
+        <title>Trunk</title>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="fillTable.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
 <body>
     <table id="dataTable">
         <tr>
@@ -15,5 +15,8 @@
             <th>Password</th>
         </tr>
     </table>
+    <form action="addPass.html">
+        <button type="submit">Add new password</button>
+    </form>
 </body>
 </html>

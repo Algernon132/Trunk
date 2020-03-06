@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
+<html>
+    <head>
+        <title>Trunk</title>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="addPass.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+<body>
+    <form id="passForm" method="post">
+        <input type="text" id="site" name="site" placeholder="Website">
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button id="submitPassButton">Enter</button>
+    </form>
+    <form action="popup.html">
+        <button type="submit">Return to passwords</button>
+    </form>
+</body>
+</html>
