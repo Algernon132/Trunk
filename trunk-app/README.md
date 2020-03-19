@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Running backend
+
+To test back end code, run `npm install -g nodemon`. After nodemon is installed, run `nodemon server.js` to start the server. HTTP requests can be made to test the routes on http://localhost:5000 and checked on MongoDB Atlas at mongodb+srv://TrunkAdmin:admin@trunk-zugog.mongodb.net/test?retryWrites=true&w=majority
