@@ -1,9 +1,38 @@
-<div class="account-items">
-<div class="card" *ngFor="let account of accounts">
-    <img [src]="account.image" class="card-img-top" alt="google">
+<ng-template #accountItem let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit Account</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input class="form-control" id="name" [value]="account.name">
+            </div>
+            <div class="form-group">
+                <label for="URL">URL:</label>
+                <input class="form-control" id="URL" [value]="account.url">
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input class="form-control" id="username" [value]="account.username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" [value]="account.password">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+<div class="card" (click)="open(accountItem)">
     <div class="card-body">
-        <h5 class="card-title">{{ account.type }}</h5>
+        <h5 class="card-title">{{ account.url }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ account.username }}</h6>
     </div>
-</div>
 </div>

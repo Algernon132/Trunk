@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { UserService } from '../user.service';
+// import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [UserService]
 })
 export class LoginComponent implements OnInit {
+
+  error = false;
 
   loginForm = new FormGroup({
     username: new FormControl('', [
@@ -18,14 +24,15 @@ export class LoginComponent implements OnInit {
     ])
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient, private userService: UserService) { } // , private userService: UserService
 
   ngOnInit(): void {
   }
 
-  doLogin(value: any) {
-    if (value.username === 'user' && value.password === 'pass') {
-      this.router.navigate(['/user', '0001']);
+   doLogin(loginData: {username: string; password: string}) {
+    // send to backend for login validation
+    if (this.userService.doLogin(loginData) === true) {
+      this.error = true;
     }
   }
 }

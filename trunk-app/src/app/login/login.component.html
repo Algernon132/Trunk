@@ -19,6 +19,7 @@
                 Password not valid.
               </div>
             </div>
+            <div *ngIf="error" style="color: white; padding: 5px;">Invalid Username or Password!</div>
             <button type="button" class="btn btn-primary" (click)="doLogin(loginForm.value)">Log In</button>
           </form>
       </div>

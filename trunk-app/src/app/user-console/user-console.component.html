@@ -1,22 +1,65 @@
-<!--side bar-->
-<div class="sidebar">
-    <ul class="list-group sidebar-items">
-        <button type="button" class="list-group-item list-group-item-action">All Items</button>
-        <button type="button" class="list-group-item list-group-item-action">Passwords</button>
-        <button type="button" class="list-group-item list-group-item-action">Addesses</button>
-        <button type="button" class="list-group-item list-group-item-action">Notes</button>
-        <button type="button" class="list-group-item list-group-item-action">SSH Keys</button>
-    </ul>
-    <ul class="list-group list-group-flush sidebar-bottom">
-        <hr>
-        <button type="button" class="list-group-item list-group-item-action">Account Settings</button>
-    </ul>
-</div>
-<nav class="navbar">
-    <span class="navbar-brand mb-0 h1">Trunk - Management Console</span>
-</nav>
-<!--Main content-->
-<div class="container">
-    <h3 class="h3 shown-title">All Items</h3>
-    <app-account-item></app-account-item>
+<div class="wrap">
+<!--side bar
+    <nav id="sidebar">
+        <ul class="list-group sidebar-items collapse">
+            <button type="button" class="list-group-item list-group-item-action">All Items</button>
+            <button type="button" class="list-group-item list-group-item-action">Passwords</button>
+            <button type="button" class="list-group-item list-group-item-action">Addesses</button>
+            <button type="button" class="list-group-item list-group-item-action">Notes</button>
+            <button type="button" class="list-group-item list-group-item-action">SSH Keys</button>
+        </ul>
+        <ul class="list-group sidebar-bottom collapse">
+            <hr>
+            <button type="button" class="list-group-item list-group-item-action">Account Settings</button>
+        </ul>
+    </nav-->
+
+    <!-- modal newAccount -->
+    <ng-template #newAccount let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">New Account</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="URL">URL:</label>
+                    <input class="form-control" id="URL">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" (click)="modal.close('Save click')">Save</button>
+        </div>
+    </ng-template>
+
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Trunk - Management Console</span>
+            </div>
+        </nav>
+        <div class="container">
+            <!--Main content-->
+            <h3 class="h3 shown-title">All Items</h3>
+            <button class="btn btn-primary" type="button" (click)="open(newAccount)">Add Item</button>
+            <div class="accountItems">
+                <app-account-item *ngFor='let accountEl of accounts' [account]="accountEl"></app-account-item>
+            </div>
+        </div>
+    </div>
 </div>

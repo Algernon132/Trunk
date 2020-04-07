@@ -8,7 +8,7 @@ import { UserConsoleComponent } from './user-console/user-console.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'user/:id', component: UserConsoleComponent }
+  { path: 'user', component: UserConsoleComponent }
 ];
 
 @NgModule({
