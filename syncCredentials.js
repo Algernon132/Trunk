@@ -12,6 +12,7 @@ function setCredentials(newUsername, newPassword){
 }
 
 function getCredentials(){
+    console.log("got credentials");
     chrome.storage.sync.get("username", function(result) {
         alert("username: " + result.username);
       });
@@ -27,9 +28,4 @@ function getCredentials(){
 function setCredentialsFromPopup(){
     var newUsername=document.getElementById('newUsername');
     setCredentials(newUsername.value,"testPassword");
-}
-
-window.onload=function(){
-    document.getElementById('retrieveUsername').addEventListener('click',getCredentials);
-    document.getElementById('setUsername').addEventListener('click',setCredentialsFromPopup);
 }

@@ -14,9 +14,7 @@ $.getJSON("data.json", function (data) {
 }//end submit
 
 window.onload=function(){
-    $("#submitPassButton").click(function(){
-        submitData();
-    });
+    $("#submitPassButton").click(function(){submitData();});
 }
 
 

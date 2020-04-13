@@ -19,8 +19,5 @@ function retrieveData(){
     );  //end getJSON
 }
 
-window.onload=function(){
-    console.log("onload fired");
-    this.retrieveData();
-}
+window.onload=function(){console.log("onload fired");retrieveData();}
 
