@@ -2,15 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsoleService } from './console.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-console',
   templateUrl: './user-console.component.html',
   styleUrls: ['./user-console.component.scss'],
-  providers: [ConsoleService]
+  providers: [ConsoleService, UserService]
 })
 export class UserConsoleComponent implements OnInit {
   accounts = [];
+
+  newAccountForm = new FormGroup({
+    name: new FormControl(''),
+    url: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   constructor(private router: Router, private consoleService: ConsoleService, private modalService: NgbModal) { }
 
@@ -21,6 +30,10 @@ export class UserConsoleComponent implements OnInit {
 
   open(content) {
     this.modalService.open(content);
+  }
+  addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {
+    this.consoleService.addAccount(newItem);
+    this.accounts = this.consoleService.getAccounts();
   }
 
 }
