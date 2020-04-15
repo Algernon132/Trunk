@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
+<html>
+    <head>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/style/global.css">
+        <title>Trunk</title>
+        <script src="/jquery-3.4.1.min.js"></script>
+        <script src="/scripts/userData.js"></script>
+        <script src="/scripts/syncCredentials.js"></script>
+        <script src="/scripts/retrieveTableData.js"></script>
+        <script src="/scripts/connectToServerTest.js"></script>
+        <script src="/scripts/windowOnload.js"></script>
+    </head>
+<body class="body">
+    <table id="dataTable">
+        <tr>
+            <th>Site</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+    </table>
+    <form action="/pages/addPass.html">
+        <button class="btn" type="submit">Add new password</button>
+    </form>
+<button class="btn" id='retrieveUsername'>check google sync username</button>
+<button class="btn" id='testServerConnection'>Test connection to server</button>
+<input type="text" id="newUsername" placeholder="new username">
+<button class="btn" id='setUsername'>Set username</button>
+</body>
+</html>

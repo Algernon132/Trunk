@@ -4,18 +4,18 @@
     <head>
         <title>Trunk</title>
         <script src="jquery-3.4.1.min.js"></script>
-        <script src="addPass.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="/scripts/addPass.js"></script>
+        <link rel="stylesheet" type="text/css" href="/style/global.css">
     </head>
-<body>
+<body class="body">
     <form id="passForm" method="post">
         <input type="text" id="site" name="site" placeholder="Website">
         <input type="text" id="username" name="username" placeholder="Username">
         <input type="password" id="password" name="password" placeholder="Password">
-        <button id="submitPassButton">Enter</button>
+        <button class="btn" id="submitPassButton">Enter</button>
     </form>
-    <form action="popup.html">
-        <button type="submit">Return to passwords</button>
+    <form action="/pages/test.html">
+        <button class="btn" type="submit">Return to passwords</button>
     </form>
 </body>
 </html>

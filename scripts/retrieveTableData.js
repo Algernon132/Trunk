@@ -1,6 +1,6 @@
 function retrieveData(){
     var table = "dataTable";                //id of table to be filled
-    var location = "data.json";
+    var location = "/testData/data.json";
     var data=null;                          //data will be sent to the server. Can use this for user authentication
     
     //shorthand for ajax call (ASYNC)

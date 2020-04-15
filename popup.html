@@ -2,29 +2,14 @@
 <!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/style/global.css">
         <title>Trunk</title>
         <script src="jquery-3.4.1.min.js"></script>
-        <script src="UserData.js"></script>
-        <script src="syncCredentials.js"></script>
-        <script src="retrieveTableData.js"></script>
-        <script src="connectToServerTest.js"></script>
-        <script src="windowOnload.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-<body>
-    <table id="dataTable">
-        <tr>
-            <th>Site</th>
-            <th>Username</th>
-            <th>Password</th>
-        </tr>
-    </table>
-    <form action="addPass.html">
-        <button type="submit">Add new password</button>
-    </form>
-<button id='retrieveUsername'>check google sync username</button>
-<button id='testServerConnection'>Test connection to server</button>
-<input type="text" id="newUsername" placeholder="new username">
-<button id='setUsername'>Set username</button>
-</body>
+    <body class="body">
+        <form action="/pages/tests.html">
+            <button class="btn" type="submit">Data tests</button>
+        </form>
+    </body>
 </html>

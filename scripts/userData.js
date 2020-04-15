@@ -1,3 +1,5 @@
+//class for holding and retrieving user data. A single object of class UserData can hold and display all user data.
+
 class UserData{
     constructor(jsonData){
         var i;
@@ -34,7 +36,7 @@ class UserData{
    printToConsole(){
        console.log(JSON.stringify(this.domain));
        console.log(JSON.stringify(this.username));
-       console.log(JSON.stringify(this.domain));
+       console.log(JSON.stringify(this.password));
    }
    
 
