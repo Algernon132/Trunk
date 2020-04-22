@@ -12,7 +12,7 @@
         <script src="/scripts/retrieveTableData.js"></script>
         <script src="/scripts/connectToServerTest.js"></script>
         <script src="/scripts/register.js"></script>
-
+        <script src="/scripts/login.js"></script>
         <script src="/scripts/windowOnload.js"></script>
     </head>
 <body class="body">
@@ -23,16 +23,12 @@
             <th>Password</th>
         </tr>
     </table>
-    <form action="/pages/addPass.html">
-        <button class="btn" type="submit">Add new password</button>
-    </form>
 <button class="btn" id='retrieveUsername'>check google sync username</button>
 <button class="btn" id='testServerConnection'>Test connection to server</button>
-<input type="text" id="newUsername" placeholder="new username">
-<button class="btn" id='setUsername'>Set username</button>
 <form action="/pages/genPassword.html">
     <button class="btn" type="submit">Generate strong password</button>
 </form>
 <button class="btn" id='registerButton'>Register</button>
+<button class="btn" id='loginButton'>Login</button>
 </body>
 </html>
