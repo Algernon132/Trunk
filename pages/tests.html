@@ -2,34 +2,38 @@
 <!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
 <html>
     <head>
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/style/global.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>Trunk</title>
-        <script src="/jquery-3.4.1.min.js"></script>
+        <script src="jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/style/global.css">
+
         <script src="/scripts/userData.js"></script>
         <script src="/scripts/syncCredentials.js"></script>
         <script src="/scripts/retrieveTableData.js"></script>
         <script src="/scripts/connectToServerTest.js"></script>
         <script src="/scripts/windowOnload.js"></script>
     </head>
-<body class="body">
-    <table id="dataTable">
-        <tr>
-            <th>Site</th>
-            <th>Username</th>
-            <th>Password</th>
-        </tr>
-    </table>
-    <form action="/pages/addPass.html">
-        <button class="btn" type="submit">Add new password</button>
-    </form>
-<button class="btn" id='retrieveUsername'>check google sync username</button>
-<button class="btn" id='testServerConnection'>Test connection to server</button>
-<input type="text" id="newUsername" placeholder="new username">
-<button class="btn" id='setUsername'>Set username</button>
-<form action="/pages/genPassword.html">
-    <button class="btn" type="submit">Generate strong password</button>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">Site</div>
+            <div class="col">Username</div>
+            <div class="col">Password</div>
+        </div>
+    </div>
+    <div class="list-group">
+        <form action="/pages/addPass.html">
+            <button class="list-group-item list-group-item-action" type="submit">Add New Password</button>
+        </form>
+        <button class="list-group-item list-group-item-action" id='retrieveUsername'>check google sync username</button>
+        <button class="list-group-item list-group-item-action" id='testServerConnection'>Test connection to server</button>
+        <input type="text" id="newUsername" placeholder="new username">
+        <button class="btn" id='setUsername'>Set username</button>
+        <form action="/pages/genPassword.html">
+        <button class="list-group-item list-group-item-action" type="submit">Generate strong password</button>
+    </div>
 </form>
 </body>
 </html>

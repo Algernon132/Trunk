@@ -2,20 +2,46 @@
 <!--Google doesn't allow ANY inline JS. Use jQuery event listeners to handle button press, etc-->
 <html>
     <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>Trunk</title>
         <script src="jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="/scripts/addPass.js"></script>
         <link rel="stylesheet" type="text/css" href="/style/global.css">
+
+        <style>
+            .container-fluid {
+                margin: 0;
+                padding: 0;
+            }
+            #passForm {
+                margin: 10px;
+            }
+            #submitPassButton {
+                margin: 0 auto;
+                width: 50%;
+            }
+        </style>
     </head>
-<body class="body">
-    <form id="passForm" method="post">
-        <input type="text" id="site" name="site" placeholder="Website">
-        <input type="text" id="username" name="username" placeholder="Username">
-        <input type="password" id="password" name="password" placeholder="Password">
-        <button class="btn" id="submitPassButton">Enter</button>
-    </form>
-    <form action="/pages/test.html">
-        <button class="btn" type="submit">Return to passwords</button>
-    </form>
+<body>
+    <div class="container-fluid">
+            <div class="list-group">
+                <form action="/pages/tests.html">
+                    <button class="list-group-item list-group-item-action" type="submit">&#8592; Return to passwords</button>
+                </form>
+            </div>
+            <form id="passForm" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="site" name="site" placeholder="Website">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <button class="btn" id="submitPassButton">Save</button>
+            </form>
+        </div>
 </body>
 </html>

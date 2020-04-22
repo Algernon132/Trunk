@@ -10,11 +10,10 @@
     
 */
 
-.body{
-    position:relative;
+body{
+    margin: 0 auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width:500px;
-    height:300px;
+    width: 300px;
 }
 .btn {
     background-color: #6e16f3;
