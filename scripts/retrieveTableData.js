@@ -6,7 +6,7 @@ function retrieveData(){
     //shorthand for ajax call (ASYNC)
     $.getJSON(location, data,
         function (data, textStatus, jqXHR) {
-            console.log("request fired");
+            console.log("db request fired");
            if(textStatus == "success"){
             const userData = new UserData(data);
             userData.fillTable(table);
