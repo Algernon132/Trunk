@@ -1,24 +1,16 @@
 
 //Will want to get some sort of encryption or something on the user data
-function setCredentials(newUsername, newPassword){
-    chrome.storage.sync.set({'username': newUsername},function(){
+function setCredentials(userID){
+    chrome.storage.sync.set({'userID': userID},function(){
+        console.log("UserID set.");
+        console.log(userID);
     })
-
-    chrome.storage.sync.set({'password': newPassword},function(){
-    })
-    console.log("credentials set");
-    console.log(newUsername);
-    console.log(newPassword);
 }
 
 function getCredentials(){
-    console.log("got credentials");
-    chrome.storage.sync.get("username", function(result) {
-        alert("username: " + result.username);
-      });
-
-    chrome.storage.sync.get("password", function(result) {
-        alert("password: " + result.password);
+    console.log("retrieving creds");
+    chrome.storage.sync.get("userID", function(result) {
+        alert("userID: " + result.userID);
       });
       //these are asynchronous, will have to account for that when using their values
 
