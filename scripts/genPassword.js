@@ -57,10 +57,6 @@ function getRandomInt(max){
     return Math.floor(Math.random()*max);
 }
 
-window.onload=function(){
-    $("#passwordButton").click(function(){generatePasswordFromPage()});
-}
-
 function generatePasswordFromPage(){
     var length = 20;
     var containsUppercase = document.getElementById("containsUppercase").checked;
@@ -68,4 +64,8 @@ function generatePasswordFromPage(){
     var containsNumbers = document.getElementById("containsNumbers").checked;
     var containsSymbols = document.getElementById("containsSymbols").checked;
     alert(generatePassword(length,containsUppercase,containsLowercase,containsNumbers,containsSymbols));
+}
+
+window.onload=function(){
+    $("#passwordButton").click(function(){generatePasswordFromPage()});
 }
