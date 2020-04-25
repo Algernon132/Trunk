@@ -19,5 +19,7 @@
       "default_popup":"popup.html"
    },
     "options_page": "/options/options.html",
-   "manifest_version":2
+   "manifest_version":2,
+   "content_security_policy": "script-src-elem https://*.bootstrapcdn.com https://*.jsdelivr.net https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js; "
 }
+

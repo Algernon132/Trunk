@@ -10,7 +10,7 @@ class UserData{
         this.username=[];
         this.password=[];
         for(i=0;i<this.numberOfRows;i++){
-            console.log(JSON.stringify(jsonData.data[i]));
+            //console.log(JSON.stringify(jsonData.data[i]));
             this.domain.push(jsonData.data[i].domain);
             this.username.push(jsonData.data[i].username);
             this.password.push(jsonData.data[i].password);

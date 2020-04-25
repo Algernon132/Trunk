@@ -9,7 +9,7 @@ function retrieveData(){
             console.log("db request fired");
            if(textStatus == "success"){
             const userData = new UserData(data);
-            userData.fillTable(table);
+            //userData.fillTable(table);
             userData.printToConsole();
            }else{
                console.log("An error occured.");
@@ -19,5 +19,5 @@ function retrieveData(){
     );  //end getJSON
 }
 
-window.onload=function(){console.log("onload fired");retrieveData();}
+// window.onload=function(){console.log("onload fired");retrieveData();}
 
