@@ -19,6 +19,7 @@
     </head>
 <body>
     <div class="container">
+        <!-- need to hide this when not logged in-->
         <div class="row">
             <div class="col">Site</div>
             <div class="col">Username</div>
@@ -29,11 +30,13 @@
         <form action="/pages/login.html">
             <button class="list-group-item list-group-item-action" type="submit">Login</button>
         </form>
-        <button class="list-group-item list-group-item-action" id='retrieveUsername'>check google sync username</button>
+        <form action="/pages/pwList.html">
+            <button class="list-group-item list-group-item-action" type="submit">Passwords</button>
+        </form>
+        <button class="list-group-item list-group-item-action" id='retrieveUsername'>google sync</button>
         <form action="/pages/genPassword.html">
-        <button class="list-group-item list-group-item-action" type="submit">Generate strong password</button>
+            <button class="list-group-item list-group-item-action" type="submit">Generate strong password</button>
+        </form>
     </div>
-</form>
-<button class="btn" id='registerButton'>Register</button>
 </body>
 </html>
