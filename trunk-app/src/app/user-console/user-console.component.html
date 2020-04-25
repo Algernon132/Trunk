@@ -49,8 +49,11 @@
 
     <div class="main-content">
         <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
+            <div class="container">
                 <span class="navbar-brand mb-0 h1">Trunk - Management Console</span>
+                <span class="form-group mb-0">
+                    <input class="form-control" type="text" [(ngModel)]="searchInput" placeholder="Search Accounts...">
+                </span>
             </div>
         </nav>
         <div class="container">
@@ -58,7 +61,48 @@
             <h3 class="h3 shown-title">All Items</h3>
             <button class="btn btn-primary" type="button" (click)="open(newAccount)">Add Item</button>
             <div class="accountItems">
-                <app-account-item *ngFor='let accountEl of accounts' [account]="accountEl"></app-account-item>
+                <div class="card accountCard" *ngFor="let account of accounts" (click)="open(accountItem)">
+                    <!--account card modal-->
+                    <ng-template #accountItem let-modal>
+                        <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Edit Account</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input class="form-control" id="name" [value]="account.name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="URL">URL:</label>
+                                    <input class="form-control" id="URL" [value]="account.url">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input class="form-control" id="username" [value]="account.username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" id="password" [value]="account.password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn" (click)="modal.close('Save click') ">Save</button>
+                        </div>
+                    </ng-template>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ account.name }}</h4>
+                        <img src="assets//images/lock-icon.png">
+                        <div class="accCardBot">
+                            <h6 class="card-subtitle mb-2">{{ account.url }}</h6>
+                            <h6 class="card-subtitle mb-2">{{ account.username }}</h6>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

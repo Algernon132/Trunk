@@ -1,5 +1,4 @@
 .navbar {
-    padding-left: 280px;
     background-color: #f37916;
     color: white;
 }
@@ -31,9 +30,43 @@
 .shown-title {
     margin-top: 20px;
 }
-.account-items {
+.accountItems {
     margin-top: 40px;
     display: flex;
+    flex-flow: row wrap;
+}
+
+.accountCard {
+    background-color: #8d5d33ea;
+    color: black;
+    margin: 10px;
+    width: 16rem;
+    display: flex;
     flex-direction: column;
+
+    .card-body {
+        padding: 0px;
+    }
+    .card-title {
+        text-align: center;
+        padding: 10px 0 0 0;
+    }
+    .accCardBot {
+        padding: 0px 10px 10px 10px;
+        color: white;
+    }
+
+    img {
+        width: 100%;
+        height: 100px;
+    }
+}
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+.modal-header {
+    background-color: #6e16f3;
+    color: white;
 }
 

@@ -9,8 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserConsoleComponent } from './user-console/user-console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AccountItemComponent } from './user-console/account-item/account-item.component';
 import { SignupComponent } from './signup/signup.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { SignupComponent } from './signup/signup.component';
     HomeComponent,
     LoginComponent,
     UserConsoleComponent,
-    AccountItemComponent,
-    SignupComponent
+    SignupComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { SignupComponent } from './signup/signup.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

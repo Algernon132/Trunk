@@ -4,6 +4,7 @@ import { ConsoleService } from './console.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../user.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-user-console',
@@ -13,6 +14,7 @@ import { UserService } from '../user.service';
 })
 export class UserConsoleComponent implements OnInit {
   accounts = [];
+  searchInput;
 
   newAccountForm = new FormGroup({
     name: new FormControl(''),
@@ -24,7 +26,7 @@ export class UserConsoleComponent implements OnInit {
   constructor(private router: Router, private consoleService: ConsoleService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    // spinner on page while loading
+    // add spinner on page while loading
     this.accounts = this.consoleService.getAccounts();
   }
 

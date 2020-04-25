@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
     // send to backend for login validation
     if (this.userService.doLogin(loginData) === true) {
       this.error = true;
+    } else {
+      this.router.navigate(['/user']);
     }
   }
 }
