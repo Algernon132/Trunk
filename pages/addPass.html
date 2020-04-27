@@ -26,13 +26,16 @@
 <body>
     <div class="container-fluid">
             <div class="list-group">
-                <form action="/pages/tests.html">
+                <form action="/popup.html">
                     <button class="list-group-item list-group-item-action" type="submit">&#8592; Return</button>
                 </form>
             </div>
             <form id="passForm" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="site" name="site" placeholder="Website">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="site" name="url" placeholder="Website">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="username" name="username" placeholder="Username">
@@ -40,7 +43,7 @@
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <button class="btn" id="submitPassButton">Save</button>
+                <button class="btn" id="submitPassButton">Add</button>
             </form>
         </div>
 </body>

@@ -15,28 +15,23 @@
         <script src="/scripts/connectToServerTest.js"></script>
         <script src="/scripts/register.js"></script>
         <script src="/scripts/login.js"></script>
-        <script src="/scripts/windowOnload.js"></script>
+        <script src="/scripts/popupOnload.js"></script>
     </head>
 <body>
-    <div class="container">
-        <!-- need to hide this when not logged in-->
-        <div class="row">
-            <div class="col">Site</div>
-            <div class="col">Username</div>
-            <div class="col">Password</div>
-        </div>
-    </div>
     <div class="list-group">
         <form action="/pages/login.html">
-            <button class="list-group-item list-group-item-action" type="submit">Login</button>
+            <button class="list-group-item list-group-item-action" id="loginButtonPopup" type="submit">Login / Register</button>
         </form>
-        <form action="/pages/pwList.html">
+        <form action="/pages/passwords.html">   <!-- hide this if not logged in-->
             <button class="list-group-item list-group-item-action" type="submit">Passwords</button>
         </form>
-        <button class="list-group-item list-group-item-action" id='retrieveUsername'>google sync</button>
+        <form action="/pages/addPass.html">
+            <button class="list-group-item list-group-item-action" type="submit">Add new password</button>
+        </form>
         <form action="/pages/genPassword.html">
             <button class="list-group-item list-group-item-action" type="submit">Generate strong password</button>
         </form>
+        
     </div>
 </body>
 </html>

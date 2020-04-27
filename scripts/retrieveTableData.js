@@ -1,7 +1,7 @@
 function retrieveData(){
     var table = "dataTable";                //id of table to be filled
-    var location = "/testData/data.json";
-    var data=null;                          //data will be sent to the server. Can use this for user authentication
+    var location = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/signup";
+    var data={userID: getCredentials()};                          //data will be sent to the server. Can use this for user authentication
     
     //shorthand for ajax call (ASYNC)
     $.getJSON(location, data,

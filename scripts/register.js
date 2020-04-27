@@ -1,8 +1,20 @@
-function register(){
-    var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/register"
+function register(formEmail, formName, formPassword){
+    var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/signup";
     console.log("register fired");
-        $.post(serverAddress,{email: "5@email.com", name: "Chaz5",password: "password5", password2:"password5"}).done(function(data){
+    console.log(formEmail,formName,formPassword);
+        $.post(serverAddress,{email: formEmail, name: formName,password: formPassword}).done(function(data){
             //add test to make sure userID is legit
-            setCredentials(data.id);
+            if('id' in data){
+                console.log(JSON.stringify(data));
+                setCredentials(data.id);
+                window.location.href = "/pages/pwList.html";
+            }else if('error' in data){
+                console.log(data.error);
+                alert(data.error);
+            }else{
+                console.log(JSON.stringify(data));
+                alert("Unknown error occurred");
+            }
+            
         });
     }

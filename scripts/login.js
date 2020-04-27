@@ -23,4 +23,12 @@ function login(formUsername, formPassword){
 window.onload=function(){
     //event.preventDefault() allows the post to run before the page is refreshed
     $("#loginButton").click(function(event){event.preventDefault();console.log("loginOnclickFired");login(document.getElementById("usernameField").value,document.getElementById("passwordField").value)});
+    
+
+    $("#registerButton").click(function(event){
+        event.preventDefault();
+        console.log("registerOnclickFired");
+        register(document.getElementById("usernameField").value,document.getElementById("passwordField").value,document.getElementById("nameField").value);
+    });
+
 }
