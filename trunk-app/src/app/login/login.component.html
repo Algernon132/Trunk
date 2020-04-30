@@ -4,7 +4,7 @@
   <div class="row">
       <div class="col-12 col-lg-6 loginBox">
         <h1 class="h2">Log In</h1><br>
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
             <div class="form-group">
               <label for="username">Username</label>
               <input class="form-control" id="username" formControlName="username">
@@ -20,7 +20,7 @@
               </div>
             </div>
             <div *ngIf="error" style="color: white; padding: 5px;">Invalid Username or Password!</div>
-            <button type="button" class="btn btn-primary" (click)="doLogin(loginForm.value)">Log In</button>
+            <button type="submit" class="btn btn-primary">Log In</button>
           </form>
           <h4>Don't have an account?  <a routerLink="/signup">Signup</a></h4>
       </div>

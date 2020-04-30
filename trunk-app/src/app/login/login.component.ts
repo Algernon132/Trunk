@@ -8,8 +8,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [UserService]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -29,12 +28,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   doLogin(loginData: {username: string; password: string}) {
-    // send to backend for login validation
-    if (this.userService.doLogin(loginData) === true) {
-      this.error = true;
-    } else {
-      this.router.navigate(['/user']);
-    }
+   doLogin() {
+    this.userService.doLogin(this.loginForm.get('username').value, this.loginForm.get('password').value);
   }
 }

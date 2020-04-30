@@ -11,6 +11,8 @@ import { UserConsoleComponent } from './user-console/user-console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { FilterPipe } from './filter.pipe';
+import { UserService } from './user.service';
+import { ConsoleService } from './user-console/console.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { FilterPipe } from './filter.pipe';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [UserService, ConsoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
