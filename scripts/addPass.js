@@ -1,20 +1,42 @@
 function addPass(nameField,urlField,usernameField,passwordField){
     var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc";
-    var userIDtest = "5ea74d8c2cc9423cf7c8bd20";
-    alert(userIDtest + " " + nameField + urlField + usernameField + passwordField);
-    $.post(serverAddress,
-        {userID: userIDtest,
-        name: usernameField,
-        url: urlField,
-        accUsername: usernameField,
-        accPassword: passwordField})
-    .done(function(data){
-        console.log("data: " + data);
-        alert(JSON.stringify(data));
-        })
-    .fail(function(jqXHR,textStatus,error){
-        alert("Error adding password: " + error);
-        });
+    var userIDtest = "5eab2f96d4b18c04c7acd561";
+    // alert(userIDtest + " " + nameField + " " + urlField + " " + usernameField + " " + passwordField);
+    // $.post(serverAddress,
+    //     JSON.stringify({userID: userIDtest,
+    //     name: usernameField,
+    //     url: urlField,
+    //     accUsername: usernameField,
+    //     accPassword: passwordField}))
+    // .done(function(data){
+    //     console.log("data: " + data);
+    //     alert(JSON.stringify(data));
+    //     })
+    // .fail(function(error){
+    //     alert("Error adding password: " + error);
+    //     })
+    // .always(function(){
+    //     console.log("always");
+    // });
+
+
+    $.ajax ({
+        url: serverAddress,
+        type: "POST",
+        data:{ userID: "5eab2f96d4b18c04c7acd561",
+                name: "usernameField",
+                url: "urlField",
+                accUsername: "usernameField",
+                accPassword: "passwordField"
+            },
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: function(){
+            alert("success!");
+        }
+    });
+
+
     }//end addPass
 
 window.onload=function(){
