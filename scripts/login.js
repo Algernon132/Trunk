@@ -7,7 +7,7 @@ function login(formUsername, formPassword){
     //$("#loginButton").hide();
 
     var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/login";
-    $.post( serverAddress, { username: formUsername, password: formPassword },dataType="json")
+    $.post( serverAddress, { email: formUsername, password: formPassword },dataType="json")
     .done(function( data ) {
         console.log(JSON.stringify(data));
         //check if id field exists. If it does, login was successful. Save ID to google sync
@@ -22,7 +22,10 @@ function login(formUsername, formPassword){
 
 window.onload=function(){
     //event.preventDefault() allows the post to run before the page is refreshed
-    $("#loginButton").click(function(event){event.preventDefault();console.log("loginOnclickFired");login(document.getElementById("usernameField").value,document.getElementById("passwordField").value)});
+    $("#loginButton").click(function(event){
+        event.preventDefault();
+        console.log("loginOnclickFired");
+        login(document.getElementById("usernameField").value,document.getElementById("passwordField").value)});
     
 
     $("#registerButton").click(function(event){

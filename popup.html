@@ -12,14 +12,15 @@
         <script src="/scripts/userData.js"></script>
         <script src="/scripts/syncCredentials.js"></script>
         <script src="/scripts/retrieveTableData.js"></script>
-        <script src="/scripts/connectToServerTest.js"></script>
         <script src="/scripts/register.js"></script>
         <script src="/scripts/login.js"></script>
+        <script src="/scripts/logout.js"></script>
         <script src="/scripts/popupOnload.js"></script>
+        
     </head>
 <body>
     <div class="list-group">
-        <form action="/pages/login.html">
+        <form id="loginForm" action="/pages/login.html">
             <button class="list-group-item list-group-item-action" id="loginButtonPopup" type="submit">Login / Register</button>
         </form>
         <form action="/pages/passwords.html">   <!-- hide this if not logged in-->

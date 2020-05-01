@@ -1,9 +1,21 @@
 function addPass(nameField,urlField,usernameField,passwordField){
-    var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc"
-        $.post(serverAddress,{userID: getCredentials(),name: nameField, url: urlField, accUsername: usernameField, accPassword: passwordField}).done(function(data){
-            alert(JSON.stringify(data));
+    var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc";
+    var userIDtest = "5ea74d8c2cc9423cf7c8bd20";
+    alert(userIDtest + " " + nameField + urlField + usernameField + passwordField);
+    $.post(serverAddress,
+        {userID: userIDtest,
+        name: usernameField,
+        url: urlField,
+        accUsername: usernameField,
+        accPassword: passwordField})
+    .done(function(data){
+        console.log("data: " + data);
+        alert(JSON.stringify(data));
+        })
+    .fail(function(jqXHR,textStatus,error){
+        alert("Error adding password: " + error);
         });
-    }
+    }//end addPass
 
 window.onload=function(){
     $("#submitPassButton").click(function(){

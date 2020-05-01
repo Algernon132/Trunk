@@ -1,6 +1,6 @@
 {
    "name":"Trunk",
-   "version":"0.1.0",
+   "version":"0.1.1",
    "description":"Trunk Capstone Project",
    "permissions":[
       "storage",
@@ -19,7 +19,6 @@
       "default_popup":"popup.html"
    },
     "options_page": "/options/options.html",
-   "manifest_version":2,
-   "content_security_policy": "script-src-elem https://*.bootstrapcdn.com https://*.jsdelivr.net https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js; "
+   "manifest_version":2
 }
 
