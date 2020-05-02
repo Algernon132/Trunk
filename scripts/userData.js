@@ -4,21 +4,22 @@ class UserData{
     constructor(jsonData){
         var i;
         //domain,username,password are arrays
-        this.numberOfRows = jsonData.count;
+        this.numberOfRows = jsonData.length;
         //this.parsedData = JSON.parse(jsonData);
         this.domain=[];
         this.username=[];
         this.password=[];
         for(i=0;i<this.numberOfRows;i++){
             //console.log(JSON.stringify(jsonData.data[i]));
-            this.domain.push(jsonData.data[i].domain);
-            this.username.push(jsonData.data[i].username);
-            this.password.push(jsonData.data[i].password);
+            this.domain.push(jsonData[i].url);
+            this.username.push(jsonData[i].name);
+            this.password.push(jsonData[i].accPassword);
         }
 
     }
 
    fillTable(tableID){
+       console.log("fillTable");
        var table=document.getElementById(tableID);
        var i = 0;
        var indexInTable = 1;    //headers have index 0
