@@ -6,6 +6,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../user.service';
 import { FilterPipe } from '../filter.pipe';
 import { Account } from './account.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-console',
@@ -45,15 +46,16 @@ export class UserConsoleComponent implements OnInit {
 
   getAccounts() {
     this.isLoading = true;
-    this.consoleService.getAccounts(this.userID)
-      .subscribe(data => this.accounts = data);
-    this.isLoading = false;
-    console.log(this.accounts);
+
+    this.consoleService.getAccounts(this.userID).subscribe(data => {
+      this.isLoading = false;
+      this.accounts = data;
+    });
   }
 
   open(content) {
     this.hide = true;
-    this.modalService.open(content);
+    this.modalService.open(content, {centered: true});
   }
 
   addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {

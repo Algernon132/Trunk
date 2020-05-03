@@ -18,7 +18,7 @@
     <ng-template #newAccount let-modal>
         <div class="modal-header">
           <h4 class="modal-title" id="modal-basic-title">New Account</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -59,7 +59,9 @@
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn" (click)="addAccountItem(newAccountForm.value)">Save</button>
+            <button class="btn deleteBtn" type="button">Delete</button>
+            <button class="btn cancelBtn" type="button">Cancel</button>
+            <button type="button" class="btn btn-secondary" (click)="addAccountItem(newAccountForm.value)">Save</button>
         </div>
     </ng-template>
 
@@ -82,13 +84,13 @@
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
-            <div class="accountItems">
+            <div *ngIf="!isLoading" class="accountItems">
                 <div class="card accountCard" *ngFor="let account of accounts" (click)="open(accountItem)">
                     <!--account card modal-->
                     <ng-template #accountItem let-modal>
                         <div class="modal-header">
                         <h4 class="modal-title" id="modal-basic-title">Edit Account</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
@@ -128,7 +130,9 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn" (click)="modal.close('Save click') ">Save</button>
+                            <button type="button" class="btn secondary">Delete</button>
+                            <button type="button" class="btn">Cancel</button>
+                            <button type="button" class="btn" (click)="modal.close('Save click')">Save</button>
                         </div>
                     </ng-template>
                     <div class="card-body">
