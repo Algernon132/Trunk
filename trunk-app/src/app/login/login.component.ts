@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   error = false;
 
   loginForm = new FormGroup({
-    username: new FormControl('', [
+    email: new FormControl('', [
       Validators.required
     ]),
     password: new FormControl('', [
@@ -29,6 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
    doLogin() {
-    this.userService.doLogin(this.loginForm.get('username').value, this.loginForm.get('password').value);
+    this.userService.doLogin(this.loginForm.get('email').value, this.loginForm.get('password').value);
   }
 }

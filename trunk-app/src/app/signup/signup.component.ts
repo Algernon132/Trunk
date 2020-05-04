@@ -32,15 +32,12 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doSignup(loginData: {email: string, name: string; password: string; verifyPassword: string}) {
-    const sendData = { email: loginData.email, name: loginData.name, password: loginData.password};
-    this.error = false;
-    if (loginData.password !== loginData.verifyPassword) {
-      this.error = true;
-    } else if (this.userService.doSignup(sendData) === true) {
-      this.error = true;
+  doSignup() {
+    if (this.signupForm.valid) {
+      this.userService.doSignup(
+        this.signupForm.get('email').value, this.signupForm.get('name').value, this.signupForm.get('password').value);
     } else {
-      // this.router.navigate(['/user']);
+      this.error = true;
     }
   }
 }

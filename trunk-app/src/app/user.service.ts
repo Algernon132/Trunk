@@ -25,11 +25,11 @@ export class UserService {
         this.username = user;
     }
 
-    doLogin(username: string, password: string) {
+    doLogin(email: string, password: string) {
 
         return this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/login',
          {
-            email: username,
+            email,
             password
         }).subscribe((responseData: any) => {
             this.userId = responseData.id;
@@ -38,20 +38,18 @@ export class UserService {
         });
     }
 
-     doSignup(loginData) {
-        // console.log('sending: ' + JSON.stringify(loginData));
+     doSignup(email: string, name: string, password: string) {
 
-        // this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/signup', loginData)
-        // .toPromise().then((responseData) => {
-        //     console.log('Server response:' + responseData.id);
-        //     if (responseData.hasOwnProperty('error')) {
-        //         this.err = true;
-        //     } else {
-        //         this.userId = (responseData);
-        //         this.router.navigate(['/user']);
-        //     }
-        // });
+        return this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/signup',
+         {
+            email,
+            name,
+            password
+        }).subscribe((responseData: any) => {
+            this.userId = responseData.id;
+            console.log('id: ' + this.userId);
+            this.router.navigate(['/user']);
+        });
 
-        return this.err;
      }
 }

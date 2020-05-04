@@ -6,10 +6,10 @@
         <h1 class="h2">Log In</h1><br>
         <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
             <div class="form-group">
-              <label for="username">Username</label>
-              <input class="form-control" id="username" formControlName="username">
+              <label for="email">Email</label>
+              <input class="form-control" id="email" formControlName="email">
               <div class="invalid-feedback">
-                Username not valid.
+                Email not valid.
               </div>
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
             <div *ngIf="error" style="color: white; padding: 5px;">Invalid Username or Password!</div>
             <button type="submit" class="btn btn-primary">Log In</button>
           </form>
-          <h4>Don't have an account?  <a routerLink="/signup">Signup</a></h4>
+          <h4 class="botMessage">Don't have an account?  <a routerLink="/signup">Signup</a></h4>
       </div>
   </div>
 </div>

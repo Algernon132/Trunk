@@ -28,7 +28,7 @@ export class ConsoleService {
           }));
     }
     addAccount(newItem, userId) {
-        this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc',
+        this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc',
         {
             userID: userId,
             name: newItem.name,
@@ -36,8 +36,10 @@ export class ConsoleService {
             accUsername: newItem.username,
             accPassword: newItem.password
         })
-         .subscribe(responseData => {
-             console.log('account added: ' + JSON.stringify(responseData));
+         .toPromise().then(responseData => {
+            if (responseData.success === 'true') {
+                return;
+            }
          });
     }
 
