@@ -1,13 +1,16 @@
 {
    "name":"Trunk",
-   "version":"0.1.1",
+   "version":"0.1.2",
    "description":"Trunk Capstone Project",
    "permissions":[
       "storage",
       "declarativeContent",
       "background",
       "clipboardWrite",
-      "clipboardRead"
+      "clipboardRead",
+      "http://*/",
+      "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com/",
+      "https://ec2-3-21-190-112.us-east-2.compute.amazonaws.com/"
    ],
    "background":{
       "scripts":[
@@ -18,7 +21,7 @@
     "browser_action":{
       "default_popup":"popup.html"
    },
-    "options_page": "/options/options.html",
+   "options_page": "/options/options.html",
    "manifest_version":2
 }
 

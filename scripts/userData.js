@@ -3,6 +3,7 @@
 class UserData{
     constructor(jsonData){
         var i;
+        console.log(JSON.stringify(jsonData));
         //domain,username,password are arrays
         this.numberOfRows = jsonData.length;
         //this.parsedData = JSON.parse(jsonData);
@@ -19,7 +20,6 @@ class UserData{
     }
 
    fillTable(tableID){
-       console.log("fillTable");
        var table=document.getElementById(tableID);
        var i = 0;
        var indexInTable = 1;    //headers have index 0
