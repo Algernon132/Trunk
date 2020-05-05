@@ -8,7 +8,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable()
 export class UserService {
 
-    private err = false;
     private userId: string;
     private username: string;
 
@@ -16,6 +15,9 @@ export class UserService {
 
     getUserId() {
         return this.userId;
+    }
+    setUserId(userId: string) {
+        this.userId = userId;
     }
 
     getUsername() {
@@ -31,10 +33,6 @@ export class UserService {
          {
             email,
             password
-        }).subscribe((responseData: any) => {
-            this.userId = responseData.id;
-            console.log('id: ' + this.userId);
-            this.router.navigate(['/user']);
         });
     }
 
@@ -45,10 +43,6 @@ export class UserService {
             email,
             name,
             password
-        }).subscribe((responseData: any) => {
-            this.userId = responseData.id;
-            console.log('id: ' + this.userId);
-            this.router.navigate(['/user']);
         });
 
      }

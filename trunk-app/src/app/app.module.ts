@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FilterPipe } from './filter.pipe';
 import { UserService } from './user.service';
 import { ConsoleService } from './user-console/console.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ConsoleService } from './user-console/console.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService, ConsoleService],
   bootstrap: [AppComponent]

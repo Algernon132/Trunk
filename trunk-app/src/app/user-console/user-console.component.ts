@@ -7,11 +7,33 @@ import { UserService } from '../user.service';
 import { FilterPipe } from '../filter.pipe';
 import { Account } from './account.model';
 import { map } from 'rxjs/operators';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-user-console',
   templateUrl: './user-console.component.html',
-  styleUrls: ['./user-console.component.scss']
+  styleUrls: ['./user-console.component.scss'],
+  animations: [
+    trigger(
+      'fadeInAnimation',
+      [
+        transition(
+          ':enter',
+          [
+            style({opacity: 0}),
+            animate('1.5s ease-out', style({opacity: 1}))
+          ]
+        ),
+        transition(
+          ':leave',
+          [
+            style({opacity: 1}),
+            animate('0.5s ease-in', style({opacity: 0}))
+          ]
+        )
+      ]
+    )
+  ]
 })
 export class UserConsoleComponent implements OnInit {
   hide = true;
@@ -19,6 +41,8 @@ export class UserConsoleComponent implements OnInit {
   searchInput;
   isLoading = false;
   userID: string;
+  alertShow = false;
+  alertMsg = 'Welcome Back!';
 
   newAccountForm = new FormGroup({
     name: new FormControl(''),
@@ -54,8 +78,9 @@ export class UserConsoleComponent implements OnInit {
       this.consoleService.getAccounts(this.userID).subscribe(data => {
       this.isLoading = false;
       this.accounts = data;
+      this.alertShow = true;
     });
-    }, 2000);
+    }, 1000);
   }
 
   addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {
@@ -65,18 +90,24 @@ export class UserConsoleComponent implements OnInit {
     this.getAccounts();
     // clear add acount form
     this.newAccountForm.reset();
+    // message alert
+    this.alertMsg = 'New Trunk Added!';
   }
   deleteAccountItem(account) {
     // delete account item
     this.consoleService.deleteAccount(this.userID, account.accID);
     // fetch updated account list
     this.getAccounts();
+    // message alert
+    this.alertMsg = 'Trunk Deleted!';
   }
   updateAccountItem(account) {
     // update account item
     this.consoleService.updateAccount(this.userID, account);
     // fetch updated account list
     this.getAccounts();
+    // message alert
+    this.alertMsg = 'Trunk Updated!';
   }
 
 }

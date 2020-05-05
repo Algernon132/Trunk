@@ -11,10 +11,12 @@ import { UserService } from '../user.service';
 export class SignupComponent implements OnInit {
 
   error = false;
+  errorMsg = '';
 
   signupForm = new FormGroup({
     email: new FormControl('', [
-      Validators.required
+      Validators.required,
+      Validators.email
     ]),
     name: new FormControl('', [
       Validators.required
@@ -33,11 +35,24 @@ export class SignupComponent implements OnInit {
   }
 
   doSignup() {
-    if (this.signupForm.valid) {
+    // if (this.signupForm.get('password') !== this.signupForm.get('verifyPassword')) {
+    //   this.errorMsg = 'Passwords do not match!';
+    //   this.error = true;
+    // } else {
       this.userService.doSignup(
-        this.signupForm.get('email').value, this.signupForm.get('name').value, this.signupForm.get('password').value);
-    } else {
-      this.error = true;
-    }
+        this.signupForm.get('email').value, this.signupForm.get('name').value, this.signupForm.get('password').value)
+        .subscribe((responseData: any) => {
+          // check for invalid input
+          if (responseData.error) {
+            this.error = true;
+            this.errorMsg = responseData.error;
+          // if valid set userId and route to management console
+          } else {
+              this.error = false;
+              this.userService.setUserId(responseData.id);
+              this.router.navigate(['/user']);
+          }
+        });
+    // }
   }
 }
