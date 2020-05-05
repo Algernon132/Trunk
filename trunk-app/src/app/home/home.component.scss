@@ -10,15 +10,44 @@
     font-size: 1.5rem;
 }
  .boxTitle {
-     margin-top: 15%;
+     margin-top: 20px;
      text-shadow: 2px 0 15px black;
      color: white;
  }
 
 .backdrop {
-    height: 70vh;
+    height: 80vh;
     width: 100%;
-    background-color: #F37916;
-    clip-path: polygon(0,0 100% 0, 100% 96%, 0 100%);
-    -webkit-clip-path: polygon(0,0 100% 0, 100% 96%, 0 100%);
+    background: linear-gradient(-50deg, #f37916, #6e16f3, #f34216, #f3b116, #16f3c7);
+    background-size: 400% 400%;
+    animation: gradient 20s ease-in-out infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.mainImg {
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+.footer {
+    background-color: rgba(176, 185, 189, 0.6);
+    height: 20vh;
+
+    .container {
+        padding-top: 75px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
 }

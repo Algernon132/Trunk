@@ -2,32 +2,41 @@
     width: 100%;
     margin: 0 auto;
 }
-.backdrop {
+.background {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 1200px;
-    background-color:  #F37916;
-    transform: skew(-218deg);
-    transform-origin: top;
-    z-index: 0;
+    background: linear-gradient(-60deg, #f37916, #6e16f3, #f34216, #f3b116, #16f3c7);
+    background-size: 400% 400%;
+    animation: gradient 20s ease-in-out infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .loginBox {
     margin: 0 auto;
     padding-top: 150px;
-    z-index: 1;
+    padding-left: 100px;
+    padding-right: 100px;
 
     input {
         width: 100%;
     }
     .h2 {
-        color: white;
+        color: black;
     }
 }
 a {
-    color: white;
+    color: #f37916;
 }
 .botMessage {
     margin-top: 20px;
