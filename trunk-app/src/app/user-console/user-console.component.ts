@@ -39,32 +39,44 @@ export class UserConsoleComponent implements OnInit {
   ngOnInit(): void {
     // get userId
     this.userID = this.userService.getUserId();
-    console.log('id in user: ' + this.userID);
     // fetch user accounts
     this.getAccounts();
-  }
-
-  getAccounts() {
-    this.isLoading = true;
-
-    this.consoleService.getAccounts(this.userID).subscribe(data => {
-      this.isLoading = false;
-      this.accounts = data;
-    });
   }
 
   open(content) {
     this.hide = true;
     this.modalService.open(content, {centered: true});
   }
+  getAccounts() {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.consoleService.getAccounts(this.userID).subscribe(data => {
+      this.isLoading = false;
+      this.accounts = data;
+    });
+    }, 2000);
+  }
 
   addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {
     // add account item
-    this.consoleService.addAccount(newItem, this.userID);
+    this.consoleService.addAccount(this.userID, newItem);
     // fetch updated account list
     this.getAccounts();
     // clear add acount form
     this.newAccountForm.reset();
+  }
+  deleteAccountItem(account) {
+    // delete account item
+    this.consoleService.deleteAccount(this.userID, account.accID);
+    // fetch updated account list
+    this.getAccounts();
+  }
+  updateAccountItem(account) {
+    // update account item
+    this.consoleService.updateAccount(this.userID, account);
+    // fetch updated account list
+    this.getAccounts();
   }
 
 }

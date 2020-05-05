@@ -18,7 +18,7 @@ export class ConsoleService {
         return this.http.post<Account[]>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/getAllAcc',
          { userID: userId})
          .pipe(map(responseData => {
-            const accountsArray = [];
+            const accountsArray: Account[] = [];
             for (const k in responseData) {
                 if (responseData.hasOwnProperty(k)) {
                     accountsArray.push({ ...responseData[k]});
@@ -27,7 +27,7 @@ export class ConsoleService {
             return accountsArray;
           }));
     }
-    addAccount(newItem, userId) {
+    addAccount(userId, newItem) {
         this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc',
         {
             userID: userId,
@@ -43,7 +43,35 @@ export class ConsoleService {
          });
     }
 
-    // updateAccount() {}
-    // deleteAccount() {}
+    deleteAccount(userId, accId) {
+        this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/DeleteAcc',
+        {
+            userID: userId,
+            accID: accId
+        })
+         .toPromise().then(responseData => {
+            if (responseData.success === 'true') {
+                return;
+            }
+         });
+    }
+
+    updateAccount(userId, account) {
+        this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/UpdateAcc',
+        {
+            userID: userId,
+            accID: account.accID,
+            name: account.name,
+            url: account.url,
+            accUsername: account.accUsername,
+            accPassword: account.accPassword
+        })
+         .toPromise().then(responseData => {
+            if (responseData.success === 'true') {
+                return;
+            }
+         });
+    }
+
     // getOneAccount() {}
 }
