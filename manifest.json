@@ -8,9 +8,9 @@
       "background",
       "clipboardWrite",
       "clipboardRead",
-      "http://*/",
-      "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com/",
-      "https://ec2-3-21-190-112.us-east-2.compute.amazonaws.com/"
+      "http://*/:8080",
+      "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080",
+      "https://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080"
    ],
    "background":{
       "scripts":[
