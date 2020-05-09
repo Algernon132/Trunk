@@ -1,0 +1,8 @@
+1) Get AddPass working 100% of the time
+2) Add link to main website
+3) Put something in options.html
+4) Hide passwords in list
+5) Copy passwords when clicked
+6) Form detection (not likely)
+7) Clean up comments / console logs
+8) Copy generated passwords directly to clipboard

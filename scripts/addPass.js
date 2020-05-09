@@ -1,3 +1,5 @@
+//this only works about half of the time. I have not a fucking clue why
+
 function addPass(nameField,urlField,usernameField,passwordField){
     var serverAddress = "http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc";
 
@@ -18,7 +20,6 @@ function addPass(nameField,urlField,usernameField,passwordField){
                     window.alert("Error adding password: " + JSON.stringify(error));
                     })
                 .always(function(){
-                    console.log("always");
                 });
         }else{
             console.log("Failed to retrieve credentials");
