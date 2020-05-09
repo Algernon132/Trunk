@@ -1,3 +1,12 @@
+.container-fluid {
+    margin-right: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+.col,.col-12,.col-6 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
 .row {
     width: 100%;
     margin: 0 auto;
@@ -9,7 +18,7 @@
     height: 100vh;
     background: linear-gradient(-60deg, #f37916, #6e16f3, #f34216, #f3b116, #16f3c7);
     background-size: 400% 400%;
-    animation: gradient 20s ease-in-out infinite;
+    animation: gradient 30s ease-in-out infinite;
 }
 @keyframes gradient {
     0% {
