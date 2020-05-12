@@ -1,0 +1,21 @@
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+    "email": "daniel8@mail.com",
+    "name": "Daniel",
+    "password": "password2",
+    "password2": "password2"
+}
+
+###
+
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+    "email": "daniel4@mail.com",
+    "name": "Daniel",
+    "password": "password",
+    "password2": "password"
+}
