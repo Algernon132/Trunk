@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
           if (responseData.error) {
             this.error = true;
             this.errorMsg = responseData.error;
-          // if valid set userId and route to management console
+          // if valid: set userId and route to management console
           } else {
               this.error = false;
               this.userService.setUserId(responseData.id);

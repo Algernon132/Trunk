@@ -4,7 +4,6 @@ import { ConsoleService } from './console.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../user.service';
-import { FilterPipe } from '../filter.pipe';
 import { Account } from './account.model';
 import { map } from 'rxjs/operators';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -13,6 +12,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   selector: 'app-user-console',
   templateUrl: './user-console.component.html',
   styleUrls: ['./user-console.component.scss'],
+  // animation for alert messages to fade in and out
   animations: [
     trigger(
       'fadeInAnimation',
@@ -36,13 +36,13 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class UserConsoleComponent implements OnInit {
-  hide = true;
-  accounts: Account[] = [];
-  searchInput;
-  isLoading = false;
+  hide = true;  // for toggling password visibility in input field
+  accounts: Account[] = []; // accounts array for cards
+  searchInput;  // for search bar input
+  isLoading = false;  // for showing loading spinner
   userID: string;
-  alertShow = false;
-  alertMsg = 'Welcome Back!';
+  alertShow = false;          // for showing alerts
+  alertMsg = 'Welcome Back!';   // default alert message
 
   newAccountForm = new FormGroup({
     name: new FormControl(''),
@@ -61,28 +61,34 @@ export class UserConsoleComponent implements OnInit {
               private modalService: NgbModal, private userService: UserService) { }
 
   ngOnInit(): void {
-    // get userId
+    // get userId on init
     this.userID = this.userService.getUserId();
-    // fetch user accounts
+    // fetch user accounts on init to load cards
     this.getAccounts();
   }
-
+  // modal open functionality
   open(content) {
     this.hide = true;
     this.modalService.open(content, {centered: true});
   }
+  // get all user accounts
   getAccounts() {
+    // show spinner while loading
     this.isLoading = true;
-
+    // 1 sec timeout to allow server to run multiple requests
     setTimeout(() => {
+      // get accounts list
       this.consoleService.getAccounts(this.userID).subscribe(data => {
+      // hide loading spinner
       this.isLoading = false;
+      // set accounts to new accounts array
       this.accounts = data;
+      // show alert of result
       this.alertShow = true;
     });
     }, 1000);
   }
-
+  // add new account to list
   addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {
     // add account item
     this.consoleService.addAccount(this.userID, newItem);
@@ -90,7 +96,7 @@ export class UserConsoleComponent implements OnInit {
     this.getAccounts();
     // clear add acount form
     this.newAccountForm.reset();
-    // message alert
+    // set message alert text
     this.alertMsg = 'New Trunk Added!';
   }
   deleteAccountItem(account) {
@@ -98,7 +104,7 @@ export class UserConsoleComponent implements OnInit {
     this.consoleService.deleteAccount(this.userID, account.accID);
     // fetch updated account list
     this.getAccounts();
-    // message alert
+    // set message alert text
     this.alertMsg = 'Trunk Deleted!';
   }
   updateAccountItem(account) {
@@ -106,7 +112,7 @@ export class UserConsoleComponent implements OnInit {
     this.consoleService.updateAccount(this.userID, account);
     // fetch updated account list
     this.getAccounts();
-    // message alert
+    // set message alert text
     this.alertMsg = 'Trunk Updated!';
   }
 

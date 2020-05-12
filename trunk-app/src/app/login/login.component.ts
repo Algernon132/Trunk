@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       if (responseData.error) {
         this.errorMsg = responseData.error;
         this.error = true;
-      // if valid set userId and route to management console
+      // if valid: set userId and route to management console
       } else {
           this.error = false;
           this.userService.setUserId(responseData.id);

@@ -12,7 +12,7 @@ export class ConsoleService {
 
     constructor(private http: HttpClient) {}
 
-
+    // get all user accouts from server
     getAccounts(userId): Observable<Account[]> {
         // request from server
         return this.http.post<Account[]>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/getAllAcc',
@@ -27,6 +27,7 @@ export class ConsoleService {
             return accountsArray;
           }));
     }
+    // add account to user list of accounts
     addAccount(userId, newItem) {
         this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/addAcc',
         {
@@ -42,7 +43,7 @@ export class ConsoleService {
             }
          });
     }
-
+    // delete account from user list of accounts
     deleteAccount(userId, accId) {
         this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/DeleteAcc',
         {
@@ -55,7 +56,7 @@ export class ConsoleService {
             }
          });
     }
-
+    // update account in user list of accounts
     updateAccount(userId, account) {
         this.http.post<{success: string}>('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/UpdateAcc',
         {
@@ -72,6 +73,6 @@ export class ConsoleService {
             }
          });
     }
-
+    // get one account from user list of accounts
     // getOneAccount() {}
 }

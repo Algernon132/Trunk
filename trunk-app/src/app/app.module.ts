@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { UserConsoleComponent } from './user-console/user-console.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-import { FilterPipe } from './filter.pipe';
 import { UserService } from './user.service';
 import { ConsoleService } from './user-console/console.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,8 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     LoginComponent,
     UserConsoleComponent,
-    SignupComponent,
-    FilterPipe
+    SignupComponent
   ],
   imports: [
     BrowserModule,

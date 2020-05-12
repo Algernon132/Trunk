@@ -10,6 +10,7 @@ export class UserService {
 
     private userId: string;
     private username: string;
+    private password: string;
 
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -19,12 +20,17 @@ export class UserService {
     setUserId(userId: string) {
         this.userId = userId;
     }
-
     getUsername() {
         return this.username;
     }
     setUsername(user: string) {
         this.username = user;
+    }
+    getPassword() {
+        return this.password;
+    }
+    setPassword(pass: string) {
+        this.password = pass;
     }
 
     doLogin(email: string, password: string) {
