@@ -8,12 +8,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable()
 export class UserService {
 
+    url = 'http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users';
+
     private userId: string;
     private username: string;
     private password: string;
 
     constructor(private http: HttpClient, private router: Router) {}
-
+    // get and set for user variables
     getUserId() {
         return this.userId;
     }
@@ -32,19 +34,20 @@ export class UserService {
     setPassword(pass: string) {
         this.password = pass;
     }
-
+    // user login
     doLogin(email: string, password: string) {
 
-        return this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/login',
+        return this.http.post(this.url + '/login',
          {
             email,
             password
         });
     }
-
+    // user signup
      doSignup(email: string, name: string, password: string) {
+        this.setPassword(password);
 
-        return this.http.post('http://ec2-3-21-190-112.us-east-2.compute.amazonaws.com:8080/users/signup',
+        return this.http.post(this.url + '/signup',
          {
             email,
             name,

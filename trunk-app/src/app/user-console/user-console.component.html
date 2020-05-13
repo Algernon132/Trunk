@@ -26,21 +26,21 @@
             <form [formGroup]="newAccountForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input class="form-control" id="name" formControlName="name">
+                    <input class="form-control" id="newName" formControlName="name">
                 </div>
                 <div class="form-group">
                     <label for="URL">URL:</label>
-                    <input class="form-control" id="URL" formControlName="url">
+                    <input class="form-control" id="newURL" formControlName="url">
                 </div>
                 <div class="form-group">
                     <label for="username">Username:</label>
-                    <input class="form-control" id="username" formControlName="username">
+                    <input class="form-control" id="newUsername" formControlName="username">
                     
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
                     <div class="input-group">
-                        <input [type]="hide ? 'password' : 'text'" class="form-control" id="password" formControlName="password">
+                        <input [type]="hide ? 'password' : 'text'" class="form-control" id="newPassword" formControlName="password">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" (click)="hide = !hide">
                                 <svg *ngIf="!hide" class="bi bi-eye-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -112,20 +112,20 @@
                             <form>
                                 <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input class="form-control" id="name" [value]="account.name">
+                                    <input class="form-control" id="name" [value]="account.name" #name>
                                 </div>
                                 <div class="form-group">
                                     <label for="URL">URL:</label>
-                                    <input class="form-control" id="URL" [value]="account.url">
+                                    <input class="form-control" id="URL" [value]="account.url" #URL>
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username:</label>
-                                    <input class="form-control" id="username" [value]="account.accUsername">
+                                    <input class="form-control" id="username" [value]="account.accUsername" #username>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password:</label>
                                     <div class="input-group">
-                                        <input [type]="hide ? 'password' : 'text'" class="form-control" id="password" [value]="account.accPassword">
+                                        <input [type]="hide ? 'password' : 'text'" class="form-control" id="password" [value]="account.accPassword" #password>
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button" (click)="hide = !hide">
                                                 <svg *ngIf="!hide" class="bi bi-eye-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +146,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn deleteBtn" (click)="deleteAccountItem(account); modal.close('Delete click')">Delete</button>
                             <button type="button" class="btn cancelBtn" (click)="modal.close('Cancel click')">Cancel</button>
-                            <button type="button" class="btn" (click)="updateAccountItem(account); modal.close('Save click')">Save</button>
+                            <button type="button" class="btn" (click)="updateAccountItem(account, name.value, URL.value, username.value, password.value); modal.close('Save click')">Save</button>
                         </div>
                     </ng-template>
                     <!--account card content-->

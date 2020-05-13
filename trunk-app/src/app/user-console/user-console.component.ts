@@ -41,16 +41,11 @@ export class UserConsoleComponent implements OnInit {
   searchInput;  // for search bar input
   isLoading = false;  // for showing loading spinner
   userID: string;
+  userPass: string;
   alertShow = false;          // for showing alerts
   alertMsg = 'Welcome Back!';   // default alert message
 
   newAccountForm = new FormGroup({
-    name: new FormControl(''),
-    url: new FormControl(''),
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-  accountForm = new FormGroup({
     name: new FormControl(''),
     url: new FormControl(''),
     username: new FormControl(''),
@@ -61,8 +56,9 @@ export class UserConsoleComponent implements OnInit {
               private modalService: NgbModal, private userService: UserService) { }
 
   ngOnInit(): void {
-    // get userId on init
+    // get userId and pass on init
     this.userID = this.userService.getUserId();
+    this.userPass = this.userService.getPassword();
     // fetch user accounts on init to load cards
     this.getAccounts();
   }
@@ -78,7 +74,7 @@ export class UserConsoleComponent implements OnInit {
     // 1 sec timeout to allow server to run multiple requests
     setTimeout(() => {
       // get accounts list
-      this.consoleService.getAccounts(this.userID).subscribe(data => {
+      this.consoleService.getAccounts(this.userID, this.userPass).subscribe(data => {
       // hide loading spinner
       this.isLoading = false;
       // set accounts to new accounts array
@@ -91,7 +87,7 @@ export class UserConsoleComponent implements OnInit {
   // add new account to list
   addAccountItem(newItem: {name: string, url: string, username: string, password: string}) {
     // add account item
-    this.consoleService.addAccount(this.userID, newItem);
+    this.consoleService.addAccount(this.userID, this.userPass, newItem);
     // fetch updated account list
     this.getAccounts();
     // clear add acount form
@@ -107,9 +103,10 @@ export class UserConsoleComponent implements OnInit {
     // set message alert text
     this.alertMsg = 'Trunk Deleted!';
   }
-  updateAccountItem(account) {
+  updateAccountItem(account: Account, name: string, url: string, username: string, password: string) {
+    const newItem = {name, url, username, password};
     // update account item
-    this.consoleService.updateAccount(this.userID, account);
+    this.consoleService.updateAccount(this.userID, this.userPass, account, newItem);
     // fetch updated account list
     this.getAccounts();
     // set message alert text
