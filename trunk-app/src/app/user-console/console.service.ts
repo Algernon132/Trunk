@@ -46,7 +46,8 @@ export class ConsoleService {
             if (responseData.success) {
                 return;
             } else {
-                console.log("error occured: "+responseData);
+                console.log('error occured: ' + responseData);
+                return;
             }
          });
     }
@@ -61,7 +62,8 @@ export class ConsoleService {
             if (responseData.success) {
                 return;
             } else {
-                console.log("error occured: "+responseData);
+                console.log('error occured: ' + responseData);
+                return;
             }
          });
     }
@@ -78,11 +80,11 @@ export class ConsoleService {
             masterPassword: userPass
         })
          .toPromise().then(responseData => {
-            console.log (responseData);
             if (responseData.success) {
                 return;
             } else {
-                console.log("error occured: "+responseData);
+                console.log('error occured: ' + responseData);
+                return;
             }
          });
     }

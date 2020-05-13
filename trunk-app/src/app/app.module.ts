@@ -14,6 +14,8 @@ import { UserService } from './user.service';
 import { ConsoleService } from './user-console/console.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [UserService, ConsoleService],
+  providers: [UserService, ConsoleService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
