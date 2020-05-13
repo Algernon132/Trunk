@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
     private userID: string;
 
-    constructor(private userService: UserService) {}
+    constructor(private userService: UserService, private router: Router) {}
 
     // check if user is logged in
     isLoggedIn() {
@@ -18,7 +19,8 @@ export class AuthService {
     }
     // lof out user
     logout() {
-        // clear userID to log out user
-        this.userService.setUserId('');
+        // clear local storage
+        localStorage.clear();
+        this.router.navigate(['/login']);
     }
 }

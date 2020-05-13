@@ -7,6 +7,7 @@ import { UserService } from '../user.service';
 import { Account } from './account.model';
 import { map } from 'rxjs/operators';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-console',
@@ -52,8 +53,8 @@ export class UserConsoleComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private router: Router, private consoleService: ConsoleService,
-              private modalService: NgbModal, private userService: UserService) { }
+  constructor(private consoleService: ConsoleService,
+              private modalService: NgbModal, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit(): void {
     // get userId and pass on init
@@ -111,6 +112,11 @@ export class UserConsoleComponent implements OnInit {
     this.getAccounts();
     // set message alert text
     this.alertMsg = 'Trunk Updated!';
+  }
+
+  // log out
+  logout() {
+    this.authService.logout();
   }
 
 }
